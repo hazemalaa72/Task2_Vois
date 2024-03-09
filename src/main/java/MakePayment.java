@@ -31,7 +31,7 @@ public class MakePayment {
     }
     public WebElement chooseSeatEle() {
 
-        return driver.findElement(By.id("Forward32"));
+        return driver.findElement(By.id("Forward110"));
     }
     public WebElement makePaymentEle() {
 

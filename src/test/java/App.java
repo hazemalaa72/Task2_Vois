@@ -1,17 +1,11 @@
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import org.openqa.selenium.support.ui.Select;
-
-import java.time.Duration;
-import java.util.concurrent.TimeUnit;
-
 public class App {
     public static void main(String[] args) {}
     WebDriver driver =null;
@@ -27,6 +21,7 @@ public class App {
         driver =new ChromeDriver();
         driver.navigate().to("https://www.ksrtc.in/oprs-web/#");
         driver.manage().window().maximize();
+        Thread.sleep(6000);
         home =new Home(driver);
         seats=new Seats(driver);
         makePayment=new MakePayment(driver);
@@ -35,7 +30,6 @@ public class App {
     }
     @Test
     public void ValidTask2() throws InterruptedException {
-        Thread.sleep(6000);
         home.routeEle().click();
         home.arrivalEle().click();
         home.searchforBusEle().click();
@@ -55,7 +49,7 @@ public class App {
         drpConcession.selectByVisibleText("GENERAL PUBLIC");
         makePayment.agreeOnTermsEle().click();
         makePayment.makePaymentEle().click();
-        String actualvalue="https://www.ksrtc.in/oprs-web/avail/services.do";
+        String actualvalue="https://www.ksrtc.in/oprs-web/booking/revamp/paxInfo.do";
         String expectedvalue=driver.getCurrentUrl();
         soft.assertEquals(actualvalue,expectedvalue,"Valid Task Assertion");
 
@@ -66,7 +60,6 @@ public class App {
     }
     @Test
     public void InValidTask2() throws InterruptedException {
-        Thread.sleep(6000);
         home.routeEle().click();
         home.arrivalEle().click();
         home.searchforBusEle().click();
