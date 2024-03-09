@@ -37,4 +37,22 @@ public class MakePayment {
 
         return driver.findElement(By.id("PgBtn"));
     }
+    public WebElement nameEle() {
+
+        return driver.findElement(By.id("passengerNameForward0"));
+    }
+    public WebElement ageEle() {
+
+        return driver.findElement(By.id("passengerAgeForward0"));
+    }
+    public WebElement genderEle() {
+
+        return driver.findElement(By.id("genderCodeIdForward0"));
+    }
+    public WebElement concessionEle() {
+
+        return driver.findElement(By.id("concessionIdsForward0"));
+    }
 }
+
+
